@@ -15,7 +15,9 @@ jobs:
     - run: flutter pub get
     - run: flutter test
     - run: flutter build apk --debug --split-per-abi
-    - name: Push APK to Releases
-      uses: actions/action-release-releaseapk@master
+    - name: Create a Release APK
+      uses: ncipollo/release-action@v1
       with:
-        token: ${{ secrets.TOKEN }}
+        artifacts: "build/app/outputs/apk/debug/*.apk,build/macos/Build/Products/Release/*.app"
+        token: ${{ secrets.GITHUB_TOKEN }}
+      # build Flutter web version
