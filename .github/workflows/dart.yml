@@ -16,7 +16,7 @@ jobs:
     - run: flutter test
     - run: flutter build apk --debug --split-per-abi
     - name: Push APK to Releases
-      uses: Cafrecode/action-release-apk@1.0.2
+      uses: jaygadariya/action-release-releaseapk@master
       with:
         artifacts: "build/app/outputs/apk/debug/*.apk"
         token: ${{ secrets.TOKEN }}
